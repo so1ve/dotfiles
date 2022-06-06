@@ -255,7 +255,7 @@ function nb { nr build @Args }
 function nbw { nr build --watch @Args }
 function nt { nr test @Args }
 function ntu { nr test -u @Args }
-function tw { nr test --watch @Args }
+function ntw { nr test --watch @Args }
 function nw { nr watch @Args }
 function np { nr play @Args }
 function nc { nr typecheck @Args }
