@@ -2,6 +2,12 @@ using namespace System.Management.Automation
 using namespace System.Management.Automation.Language
 
 #############################
+# Encoding
+#############################
+
+[console]::InputEncoding = [console]::OutputEncoding = New-Object System.Text.UTF8Encoding
+
+#############################
 # PSReadLine
 #############################
 
@@ -86,7 +92,8 @@ Set-PSReadLineKeyHandler -Key '"', "'" `
         if ($line[0..$cursor].Where{ $_ -eq $quote }.Count % 2 -eq 1) {
             # Odd number of quotes before the cursor, insert a single quote
             [Microsoft.PowerShell.PSConsoleReadLine]::Insert($quote)
-        } else {
+        }
+        else {
             # Insert matching quotes, move cursor to be in between the quotes
             [Microsoft.PowerShell.PSConsoleReadLine]::Insert("$quote$quote")
             [Microsoft.PowerShell.PSConsoleReadLine]::SetCursorPosition($cursor + 1)
@@ -134,7 +141,8 @@ Set-PSReadLineKeyHandler -Key '(', '{', '[' `
         # Text is selected, wrap it in brackets
         [Microsoft.PowerShell.PSConsoleReadLine]::Replace($selectionStart, $selectionLength, $key.KeyChar + $line.SubString($selectionStart, $selectionLength) + $closeChar)
         [Microsoft.PowerShell.PSConsoleReadLine]::SetCursorPosition($selectionStart + $selectionLength + 2)
-    } else {
+    }
+    else {
         # No text is selected, insert a pair
         [Microsoft.PowerShell.PSConsoleReadLine]::Insert("$($key.KeyChar)$closeChar")
         [Microsoft.PowerShell.PSConsoleReadLine]::SetCursorPosition($cursor + 1)
@@ -153,7 +161,8 @@ Set-PSReadLineKeyHandler -Key ')', ']', '}' `
 
     if ($line[$cursor] -eq $key.KeyChar) {
         [Microsoft.PowerShell.PSConsoleReadLine]::SetCursorPosition($cursor + 1)
-    } else {
+    }
+    else {
         [Microsoft.PowerShell.PSConsoleReadLine]::Insert("$($key.KeyChar)")
     }
 }
@@ -182,7 +191,8 @@ Set-PSReadLineKeyHandler -Key Backspace `
 
         if ($toMatch -ne $null -and $line[$cursor - 1] -eq $toMatch) {
             [Microsoft.PowerShell.PSConsoleReadLine]::Delete($cursor - 1, 2)
-        } else {
+        }
+        else {
             [Microsoft.PowerShell.PSConsoleReadLine]::BackwardDeleteChar($key, $arg)
         }
     }
@@ -199,17 +209,19 @@ Import-Module PSColor
 # Completions
 #############################
 
-Import-Module $env:SCOOP\modules\posh-cargo
-Import-Module $env:SCOOP\modules\posh-docker
-Import-Module $env:SCOOP\modules\posh-git
-Import-Module $env:SCOOP\modules\scoop-completion
-Import-Module $env:SCOOP\modules\dockercompletion
-Import-Module $env:SCOOP\apps\bottom\current\completion\_btm.ps1
+Import-Module $Env:SCOOP\modules\posh-cargo
+Import-Module $Env:SCOOP\modules\posh-docker
+Import-Module $Env:SCOOP\modules\posh-git
+Import-Module $Env:SCOOP\modules\scoop-completion
+Import-Module $Env:SCOOP\modules\dockercompletion
+Import-Module $Env:SCOOP\apps\bottom\current\completion\_btm.ps1
 starship completions powershell | Out-String | Invoke-Expression
 rustup completions powershell | Out-String | Invoke-Expression
 fnm completions --shell powershell | Out-String | Invoke-Expression
+dvm completions powershell | Out-String | Invoke-Expression
 deno completions powershell --unstable | Out-String | Invoke-Expression
-(& conda 'shell.powershell' 'hook') | Out-String | Invoke-Expression
+# (& conda 'shell.powershell' 'hook') | Out-String | Invoke-Expression
+(& volta completions powershell) | Out-String | Invoke-Expression
 Invoke-Expression (& { $hook = if ($PSVersionTable.PSVersion.Major -ge 6) { 'pwd' } else { 'prompt' } (zoxide init powershell --hook $hook | Out-String) })
 
 #############################
@@ -224,30 +236,51 @@ Invoke-Expression (&starship init powershell)
 
 # Rustup
 
-$env:RUSTUP_DIST_SERVER = "https://mirrors.ustc.edu.cn/rust-static"
-$env:RUSTUP_UPDATE_ROOT = "https://mirrors.ustc.edu.cn/rust-static/rustup"
+$Env:RUSTUP_DIST_SERVER = "https://mirrors.ustc.edu.cn/rust-static"
+$Env:RUSTUP_UPDATE_ROOT = "https://mirrors.ustc.edu.cn/rust-static/rustup"
 
 #############################
 # fnm
 #############################
 
-$env:FNM_DIR = "D:\.fnm"
-$env:FNM_NODE_DIST_MIRROR = "https://cdn.npmmirror.com/binaries/node"
+$Env:FNM_DIR = "D:\.fnm"
+$Env:FNM_NODE_DIST_MIRROR = "https://cdn.npmmirror.com/binaries/node"
 
 fnm env --use-on-cd | Out-String | Invoke-Expression
 
 #############################
-# Pyenv
+# Misc
 #############################
 
-# $env:PYTHON_BUILD_MIRROR_URL = ""
+$Env:FFMPEG_DIR = "$Env:SCOOP\apps\ffmpeg-shared\current"
+$Env:LIBCLANG_PATH = "$Env:SCOOP\apps\llvm\current\bin"
+
+#############################
+# PyEnv
+#############################
+
+# $Env:PYTHON_BUILD_MIRROR_URL = "https://npm.taobao.org/mirrors/python"
+
+#############################
+# Zoxide alias
+# Well, this should be here
+#############################
+
+# Remove-Alias -Name cd -Force
+# Set-Alias cd z
 
 #############################
 # PNPM
 #############################
 
-$env:PNPM_HOME = "D:\.pnpm"
-$env:Path += $env:PNPM_HOME
+$Env:PNPM_HOME = "D:\.pnpm"
+$Env:Path += ";$Env:PNPM_HOME"
+
+#############################
+# Path
+#############################
+
+$Env:Path += ";C:\Users\Hatsune_Miku\.deno\bin"
 
 #############################
 # Aliases
@@ -255,37 +288,44 @@ $env:Path += $env:PNPM_HOME
 
 # Fix @antfu/ni
 Remove-Alias -Name ni -Force
+# Fix Scoop Install alias
+Remove-Alias -Name si -Force
 
 # Git
 Import-Module git-aliases -DisableNameChecking
 Set-Alias git hub
-Set-Alias code-insiders "D:\Code-Insiders\bin\code-insiders.cmd" # WTF
+# VS Code
 Set-Alias code code-insiders
 
 # Node
 function nio { ni --prefer-offline @Args }
-function nd { nr dev @Args }
-function ns { nr start @Args }
-function nb { nr build @Args }
-function nbw { nr build --watch @Args }
-function nt { nr test @Args }
-function ntu { nr test -u @Args }
-function ntw { nr test --watch @Args }
-function nw { nr watch @Args }
-function np { pnpm publish --access public --no-git-checks @Args }
-function nc { nr typecheck @Args }
-function nl { nr lint @Args }
-function nlf { nr lint --fix @Args }
-function nrelease { nr release @Args }
-function nre { nr release @Args }
+function nid { ni -D @Args }
+function niod { ni -D --prefer-offline @Args }
+function d { nr dev @Args }
+function s { nr start @Args }
+function b { nr build @Args }
+function bw { nr build --watch @Args }
+function t { nr test @Args }
+function tu { nr test -u @Args }
+function tw { nr test --watch @Args }
+function w { nr watch @Args }
+function p { pnpm publish --access public --no-git-checks @Args }
+function tc { nr typecheck @Args }
+function l { nr lint @Args }
+function lf { nr lint --fix @Args }
+function release { nr release @Args }
+function re { nr release @Args }
 
-function taze { pnpm dlx taze @Args }
-function tz { taze major @Args }
-function de { degit -m=git @Args }
+function taze { nx taze@latest @Args }
+function tzm { taze major @Args }
+function tz { taze major -wfri @Args }
+function giget { nx giget@latest @Args }
+function vc { nx vercel@latest @Args }
 function vcp { vc --prod @Args }
 
 # Deno
-function dctl { deployctl deploy --token=ddp_X6XzDylPZmdKwJmpWg2aUrFRRrHfEY1pPe6G @Args }
+$DEPLOY_TOKEN = ""
+function dctl { deployctl deploy --token=$DEPLOY_TOKEN @Args }
 function dctlp { dctl --prod @Args }
 
 # Go
@@ -294,3 +334,32 @@ function gmt { go mod tidy @Args }
 function gmi { go mod init @Args }
 function gt { go test @Args }
 function gta { go test ./... @Args }
+
+# Python
+function pi { pip install @Args }
+function pu { pip install --upgrade @Args }
+function pup { pu pip }
+
+# Misc
+function yg { you-get -o="D:\.you-get" @Args } # You-get
+function si { scoop install @Args } # Scoop Install
+function sun { scoop uninstall @Args } # Scoop Uninstall
+function proxy {
+    $Env:http_proxy = "http://127.0.0.1:7890"
+    $Env:https_proxy = "http://127.0.0.1:7890"
+}
+function unproxy {
+    $Env:http_proxy = ""
+    $Env:https_proxy = ""
+}
+function fnmn { fnm --node-dist-mirror https://nodejs.org/download/nightly/ @Args }
+function Rename-Branch {
+    git branch -m $Args[0] $Args[1]
+    git fetch origin
+    git branch -u "origin/$Args[1]" $Args[1]
+    git remote set-head origin -a
+}
+
+# INIT Proxy
+
+proxy
