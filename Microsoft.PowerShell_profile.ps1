@@ -274,7 +274,7 @@ $Env:SENTRYCLI_CDNURL = "https://cdn.npmmirror.com/binaries/sentry-cli"
 $Env:SAUCECTL_INSTALL_BINARY_MIRROR = "https://cdn.npmmirror.com/binaries/saucectl"
 $Env:npm_config_sharp_binary_host = "https://cdn.npmmirror.com/binaries/sharp"
 $Env:npm_config_sharp_libvips_binary_host = "https://cdn.npmmirror.com/binaries/sharp-libvips"
-$Env:npm_config_robotjs_binary_host = "https://cdn.npmmirror.com/binaries/robotj"
+$Env:npm_config_robotjs_binary_host = "https://cdn.npmmirror.com/binaries/robotjs"
 $Env:CYPRESS_DOWNLOAD_PATH_TEMPLATE = 'https://cdn.npmmirror.com/binaries/cypress/${version}/${platform}-${arch}/cypress.zip'
 
 #############################
