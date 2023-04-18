@@ -256,6 +256,28 @@ $Env:FFMPEG_DIR = "$Env:SCOOP\apps\ffmpeg-shared\current"
 $Env:LIBCLANG_PATH = "$Env:SCOOP\apps\llvm\current\bin"
 
 #############################
+# Mirror
+#############################
+
+$Env:NODEJS_ORG_MIRROR = "https://cdn.npmmirror.com/binaries/node"
+$Env:NVM_NODEJS_ORG_MIRROR = "https://cdn.npmmirror.com/binaries/node"
+$Env:PHANTOMJS_CDNURL = "https://cdn.npmmirror.com/binaries/phantomjs"
+$Env:CHROMEDRIVER_CDNURL = "https://cdn.npmmirror.com/binaries/chromedriver"
+$Env:OPERADRIVER_CDNURL = "https://cdn.npmmirror.com/binaries/operadriver"
+$Env:ELECTRON_MIRROR = "https://cdn.npmmirror.com/binaries/electron/"
+$Env:ELECTRON_BUILDER_BINARIES_MIRROR = "https://cdn.npmmirror.com/binaries/electron-builder-binaries/"
+$Env:SASS_BINARY_SITE = "https://cdn.npmmirror.com/binaries/node-sass"
+$Env:SWC_BINARY_SITE = "https://cdn.npmmirror.com/binaries/node-swc"
+$Env:NWJS_URLBASE = "https://cdn.npmmirror.com/binaries/nwjs/v"
+$Env:PUPPETEER_DOWNLOAD_HOST = "https://cdn.npmmirror.com/binaries"
+$Env:SENTRYCLI_CDNURL = "https://cdn.npmmirror.com/binaries/sentry-cli"
+$Env:SAUCECTL_INSTALL_BINARY_MIRROR = "https://cdn.npmmirror.com/binaries/saucectl"
+$Env:npm_config_sharp_binary_host = "https://cdn.npmmirror.com/binaries/sharp"
+$Env:npm_config_sharp_libvips_binary_host = "https://cdn.npmmirror.com/binaries/sharp-libvips"
+$Env:npm_config_robotjs_binary_host = "https://cdn.npmmirror.com/binaries/robotj"
+$Env:CYPRESS_DOWNLOAD_PATH_TEMPLATE = 'https://cdn.npmmirror.com/binaries/cypress/${version}/${platform}-${arch}/cypress.zip'
+
+#############################
 # PyEnv
 #############################
 
