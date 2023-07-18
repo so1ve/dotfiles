@@ -225,6 +225,13 @@ deno completions powershell --unstable | Out-String | Invoke-Expression
 Invoke-Expression (& { $hook = if ($PSVersionTable.PSVersion.Major -ge 6) { 'pwd' } else { 'prompt' } (zoxide init powershell --hook $hook | Out-String) })
 
 #############################
+# Fuck!
+#############################
+
+$Env:PYTHONIOENCODING = "utf-8"
+thefuck --alias | Out-String | Invoke-Expression
+
+#############################
 # Starship
 #############################
 
@@ -256,28 +263,6 @@ $Env:FFMPEG_DIR = "$Env:SCOOP\apps\ffmpeg-shared\current"
 $Env:LIBCLANG_PATH = "$Env:SCOOP\apps\llvm\current\bin"
 
 #############################
-# Mirror
-#############################
-
-$Env:NODEJS_ORG_MIRROR = "https://cdn.npmmirror.com/binaries/node"
-$Env:NVM_NODEJS_ORG_MIRROR = "https://cdn.npmmirror.com/binaries/node"
-$Env:PHANTOMJS_CDNURL = "https://cdn.npmmirror.com/binaries/phantomjs"
-$Env:CHROMEDRIVER_CDNURL = "https://cdn.npmmirror.com/binaries/chromedriver"
-$Env:OPERADRIVER_CDNURL = "https://cdn.npmmirror.com/binaries/operadriver"
-$Env:ELECTRON_MIRROR = "https://cdn.npmmirror.com/binaries/electron/"
-$Env:ELECTRON_BUILDER_BINARIES_MIRROR = "https://cdn.npmmirror.com/binaries/electron-builder-binaries/"
-$Env:SASS_BINARY_SITE = "https://cdn.npmmirror.com/binaries/node-sass"
-$Env:SWC_BINARY_SITE = "https://cdn.npmmirror.com/binaries/node-swc"
-$Env:NWJS_URLBASE = "https://cdn.npmmirror.com/binaries/nwjs/v"
-$Env:PUPPETEER_DOWNLOAD_HOST = "https://cdn.npmmirror.com/binaries"
-$Env:SENTRYCLI_CDNURL = "https://cdn.npmmirror.com/binaries/sentry-cli"
-$Env:SAUCECTL_INSTALL_BINARY_MIRROR = "https://cdn.npmmirror.com/binaries/saucectl"
-$Env:npm_config_sharp_binary_host = "https://cdn.npmmirror.com/binaries/sharp"
-$Env:npm_config_sharp_libvips_binary_host = "https://cdn.npmmirror.com/binaries/sharp-libvips"
-$Env:npm_config_robotjs_binary_host = "https://cdn.npmmirror.com/binaries/robotjs"
-$Env:CYPRESS_DOWNLOAD_PATH_TEMPLATE = 'https://cdn.npmmirror.com/binaries/cypress/${version}/${platform}-${arch}/cypress.zip'
-
-#############################
 # PyEnv
 #############################
 
@@ -305,6 +290,29 @@ $Env:Path += ";$Env:PNPM_HOME"
 $Env:Path += ";C:\Users\Hatsune_Miku\.deno\bin"
 
 #############################
+# Binary Mirror
+#############################
+
+$Env:NODEJS_ORG_MIRROR = "https://cdn.npmmirror.com/binaries/node"
+$Env:NVM_NODEJS_ORG_MIRROR = "https://cdn.npmmirror.com/binaries/node"
+$Env:PHANTOMJS_CDNURL = "https://cdn.npmmirror.com/binaries/phantomjs"
+$Env:CHROMEDRIVER_CDNURL = "https://cdn.npmmirror.com/binaries/chromedriver"
+$Env:OPERADRIVER_CDNURL = "https://cdn.npmmirror.com/binaries/operadriver"
+$Env:ELECTRON_MIRROR = "https://cdn.npmmirror.com/binaries/electron/"
+$Env:ELECTRON_BUILDER_BINARIES_MIRROR = "https://cdn.npmmirror.com/binaries/electron-builder-binaries/"
+$Env:SASS_BINARY_SITE = "https://cdn.npmmirror.com/binaries/node-sass"
+$Env:SWC_BINARY_SITE = "https://cdn.npmmirror.com/binaries/node-swc"
+$Env:NWJS_URLBASE = "https://cdn.npmmirror.com/binaries/nwjs/v"
+$Env:PUPPETEER_DOWNLOAD_HOST = "https://cdn.npmmirror.com/binaries"
+$Env:SENTRYCLI_CDNURL = "https://cdn.npmmirror.com/binaries/sentry-cli"
+$Env:SAUCECTL_INSTALL_BINARY_MIRROR = "https://cdn.npmmirror.com/binaries/saucectl"
+$Env:npm_config_sharp_binary_host = "https://cdn.npmmirror.com/binaries/sharp"
+$Env:npm_config_sharp_libvips_binary_host = "https://cdn.npmmirror.com/binaries/sharp-libvips"
+$Env:npm_config_robotjs_binary_host = "https://cdn.npmmirror.com/binaries/robotj"
+# For Cypress >=10.6.0, https://docs.cypress.io/guides/references/changelog#10-6-0
+$Env:CYPRESS_DOWNLOAD_PATH_TEMPLATE = 'https://cdn.npmmirror.com/binaries/cypress/${version}/${platform}-${arch}/cypress.zip'
+
+#############################
 # Aliases
 #############################
 
@@ -314,7 +322,7 @@ Remove-Alias -Name ni -Force
 Remove-Alias -Name si -Force
 
 # Git
-Import-Module git-aliases -DisableNameChecking
+Import-Module $Env:SCOOP\modules\git-aliases
 Set-Alias git hub
 # VS Code
 Set-Alias code code-insiders
@@ -334,7 +342,7 @@ function w { nr watch @Args }
 function p { pnpm publish --access public --no-git-checks @Args }
 function tc { nr typecheck @Args }
 function l { nr lint @Args }
-function lf { nr lint --fix @Args }
+function lf { nr lint:fix @Args }
 function release { nr release @Args }
 function re { nr release @Args }
 
