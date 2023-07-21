@@ -322,8 +322,7 @@ Remove-Alias -Name ni -Force
 Remove-Alias -Name si -Force
 
 # Git
-Import-Module $Env:SCOOP\modules\git-aliases
-Set-Alias git hub
+Import-Module $Env:SCOOP\modules\git-aliases -DisableNameChecking
 # VS Code
 Set-Alias code code-insiders
 
@@ -343,8 +342,8 @@ function p { pnpm publish --access public --no-git-checks @Args }
 function tc { nr typecheck @Args }
 function l { nr lint @Args }
 function lf { nr lint:fix @Args }
-function release { nr release @Args }
 function re { nr release @Args }
+function create { pnpm create @Args }
 
 function taze { nx taze@latest @Args }
 function tzm { taze major @Args }
@@ -388,6 +387,15 @@ function Rename-Branch {
     git fetch origin
     git branch -u "origin/$Args[1]" $Args[1]
     git remote set-head origin -a
+}
+
+# Fuck hard reset
+function git {
+    if ($args[0] -eq "reset" -and $args[1] -eq "--hard") {
+        Write-Error "Fuck hard reset"
+    } else {
+        & hub @args
+    }
 }
 
 # INIT Proxy
