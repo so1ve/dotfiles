@@ -1,265 +1,287 @@
 {
-  // Editor
-  "editor.tabSize": 2,
-  "editor.fontFamily": "'FiraCode NF', Consolas, 'Courier New', '等线 Medium', monospace",
-  "editor.fontLigatures": true,
-  "editor.wordWrap": "on",
-  "editor.codeActionsOnSave": {
-    "source.fixAll": true,
-    "source.fixAll.eslint": true,
-    "source.fixAll.stylelint": true,
-    "source.organizeImports": false,
-    "addMissingImports": true
-  },
-  "editor.unicodeHighlight.ambiguousCharacters": false,
-  "editor.accessibilitySupport": "off",
-  "editor.smoothScrolling": true,
-  "editor.cursorBlinking": "smooth",
-  "editor.codeLens": true,
-  "editor.cursorSmoothCaretAnimation": "on",
-  "editor.guides.bracketPairs": "active",
-  "editor.inlineSuggest.enabled": true,
-  "editor.renderWhitespace": "boundary",
-  "editor.suggestSelection": "first",
-  "editor.acceptSuggestionOnEnter": "off",
-  "editor.unicodeHighlight.invisibleCharacters": false,
-  "editor.stickyScroll.enabled": true,
-  "editor.snippetSuggestions": "bottom",
-  "editor.linkedEditing": true,
-  "workbench.iconTheme": "material-icon-theme",
-  "workbench.productIconTheme": "icons-carbon",
-  "workbench.editor.closeOnFileDelete": true,
-  "workbench.editor.highlightModifiedTabs": true,
-  "workbench.editor.limit.enabled": true,
-  "workbench.editor.limit.perEditorGroup": true,
-  "workbench.editor.limit.value": 8,
-  "workbench.editor.openPositioning": "first",
-  "workbench.editor.enablePreview": false,
-  "workbench.list.smoothScrolling": true,
-  "workbench.tree.expandMode": "singleClick",
-  "workbench.tree.indent": 10,
-  "workbench.startupEditor": "none",
-  "workbench.colorTheme": "One Dark Pro Mix",
-  // Explorer
-  "explorer.confirmDelete": false,
-  "explorer.confirmDragAndDrop": false,
-  // Window
-  // "window.autoDetectColorScheme": true,
-  "window.commandCenter": true,
-  "window.dialogStyle": "custom",
-  "window.titleBarStyle": "custom",
-  // SCM
-  "git.autofetch": true,
-  "git.confirmSync": false,
-  "git.enableSmartCommit": true,
-  "scm.diffDecorationsGutterWidth": 2,
-  // Terminal
-  "terminal.integrated.cursorBlinking": true,
-  "terminal.integrated.fontWeight": "300",
-  "terminal.integrated.persistentSessionReviveProcess": "never",
-  "terminal.integrated.tabs.enabled": true,
-  "terminal.integrated.profiles.windows": {
-    "PowerShell 7": {
-      "path": "${env:SCOOP}\\shims\\pwsh.exe",
-      "icon": "terminal-powershell",
-      "args": [
-        "-NoLogo"
-      ],
-    },
-  },
-  "terminal.integrated.defaultProfile.windows": "PowerShell 7",
-  "terminal.integrated.enableMultiLinePasteWarning": false,
-  "terminal.integrated.autoReplies": {
-    "Terminate batch job (Y/N)": "Y\r"
-  },
-  // Security
-  "security.workspace.trust.enabled": false,
-  // Debug
-  "debug.onTaskErrors": "debugAnyway",
-  // Diff Editor
-  "diffEditor.ignoreTrimWhitespace": false,
-  // Misc
-  "search.exclude": {
-    "**/.git": true,
-    "**/.github": true,
-    "**/.nuxt": true,
-    "**/.output": true,
-    "**/.pnpm": true,
-    "**/.vscode": true,
-    "**/.yarn": true,
-    "**/bower_components": true,
-    "**/dist/**": true,
-    "**/logs": true,
-    "**/node_modules": true,
-    "**/out/**": true,
-    "**/package-lock.json": true,
-    "**/pnpm-lock.yaml": true,
-    "**/yarn.lock": true,
-    "**/tmp": true
-  },
-  "files.autoSave": "onFocusChange",
-  "files.eol": "\n",
-  "files.simpleDialog.enable": true,
-  // Stylelint
-  "css.validate": false,
-  "scss.validate": false,
-  "less.validate": false,
-  // Languages
-  "typescript.updateImportsOnFileMove.enabled": "always",
-  "typescript.tsserver.useSyntaxServer": "auto",
-  // "typescript.useCodeSnippetsOnFunctionSuggest": true,
-  "javascript.updateImportsOnFileMove.enabled": "always",
-  // Extensions
-  "emmet.excludeLanguages": [
-    "markdown",
-    "typescript",
-    "javascript"
-  ],
-  "emmet.showSuggestionsAsSnippets": true,
-  "emmet.useInlineCompletions": true,
-  "emmet.triggerExpansionOnTab": true,
-  "eslint.codeAction.showDocumentation": {
-    "enable": true
-  },
-  "eslint.validate": [
-    "javascript",
-    "typescript",
-    "javascriptreact",
-    "typescriptreact",
-    "vue",
-    "html",
-    "markdown",
-    "json",
-    "jsonc",
-    "json5"
-  ],
-  "stylelint.validate": [
-    "css",
-    "html",
-    "javascriptreact",
-    "less",
-    "postcss",
-    "sass",
-    "scss",
-    "source.css.styled",
-    "source.markdown.math",
-    "styled-css",
-    "sugarss",
-    "svelte",
-    "typescriptreact",
-    "vue",
-    "vue-html",
-    "vue-postcss",
-    "xml",
-    "xsl"
-  ],
-  "github.copilot.enable": {
-    "*": true,
-    "yaml": true,
-    "plaintext": true,
-    "markdown": true,
-    "typescript": true
-  },
-  "githubIssues.workingIssueFormatScm": "#${issueNumberLabel}",
-  "githubPullRequests.fileListLayout": "tree",
-  "gitlens.codeLens.authors.enabled": false,
-  "gitlens.codeLens.enabled": false,
-  "gitlens.codeLens.recentChange.enabled": false,
-  "gitlens.menus": {
-    "editor": {
-      "blame": false,
-      "clipboard": true,
-      "compare": true,
-      "history": false,
-      "remote": false
-    },
-    "editorGroup": {
-      "blame": true,
-      "compare": false
-    },
-    "editorTab": {
-      "clipboard": true,
-      "compare": true,
-      "history": true,
-      "remote": true
-    },
-    "explorer": {
-      "clipboard": true,
-      "compare": true,
-      "history": true,
-      "remote": true
-    },
-    "scm": {
-      "authors": true
-    },
-    "scmGroup": {
-      "compare": true,
-      "openClose": true,
-      "stash": true
-    },
-    "scmGroupInline": {
-      "stash": true
-    },
-    "scmItem": {
-      "clipboard": true,
-      "compare": true,
-      "history": true,
-      "remote": false,
-      "stash": true
-    }
-  },
-  "i18n-ally.displayLanguage": "zh-CN",
-  "i18n-ally.ignoredLocales": [],
-  "iconify.annotations": true,
-  "iconify.inplace": true,
-  "python.analysis.autoImportCompletions": true,
-  "python.analysis.autoImportUserSymbols": true,
-  "volar.autoCompleteRefs": false,
-  "volar.codeLens.pugTools": false,
-  "volar.codeLens.scriptSetupTools": true,
-  "volar.completion.preferredTagNameCase": "pascal",
-  "vite.autoStart": false,
-  "vite.buildCommand": "nr build",
-  "vite.devCommand": "nr dev",
-  "code-runner.runInTerminal": true,
-  "svelte.enable-ts-plugin": true,
-  "svelte.plugin.svelte.note-new-transformation": false,
-  "python.formatting.provider": "black",
-  "remote.SSH.remotePlatform": {
-    "155.248.177.55": "linux"
-  },
-  "redhat.telemetry.enabled": false,
-  "tabnine.experimentalAutoImports": true,
-  "vscode-edge-devtools.webhint": false,
-  // Languages
-  "[vue]": {
-    "editor.defaultFormatter": "Vue.volar"
-  },
-  "[rust]": {
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "rust-lang.rust-analyzer",
-    "editor.indentSize": 4
-  },
-  "[toml]": {
-    "editor.formatOnSave": true
-  },
-  "[python]": {
-    "editor.formatOnSave": true,
-    "editor.formatOnType": true
-  },
-  "[svelte]": {
-    "editor.defaultFormatter": "svelte.svelte-vscode"
-  },
-  "[html]": {
-    "editor.indentSize": 4,
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features"
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "vscode.json-language-features",
-  },
-  "[css]": {
-    "editor.defaultFormatter": "vscode.css-language-features"
-  },
+	// Editor
+	"editor.tabSize": 2,
+	"editor.fontFamily": "'FiraCode Nerd Font Mono', 'Maple Mono SC NF', monospace",
+	"editor.fontSize": 14,
+	"editor.lineHeight": 0,
+	"editor.fontLigatures": true,
+	"editor.fontVariations": "ss02",
+	"editor.wordWrap": "on",
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true,
+		"source.fixAll.stylelint": true
+	},
+	"editor.quickSuggestions": {
+		"other": "on",
+		"comments": "on",
+		"strings": "on"
+	},
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.formatOnSave": true,
+	// "editor.mouseWheelZoom": true,
+	"editor.tabCompletion": "on",
+	"editor.unicodeHighlight.ambiguousCharacters": false,
+	"editor.accessibilitySupport": "off",
+	"editor.smoothScrolling": true,
+	"editor.cursorBlinking": "smooth",
+	"editor.codeLens": true,
+	"editor.cursorSmoothCaretAnimation": "on",
+	"editor.guides.bracketPairs": "active",
+	"editor.inlineSuggest.enabled": true,
+	"editor.renderWhitespace": "boundary",
+	"editor.suggestSelection": "first",
+	"editor.acceptSuggestionOnEnter": "off",
+	"editor.unicodeHighlight.invisibleCharacters": false,
+	"editor.stickyScroll.enabled": true,
+	"editor.snippetSuggestions": "bottom",
+	"editor.linkedEditing": true,
+	"editor.detectIndentation": true,
+	"workbench.iconTheme": "material-icon-theme",
+	"workbench.productIconTheme": "icons-carbon",
+	"workbench.editor.closeOnFileDelete": true,
+	"workbench.editor.highlightModifiedTabs": true,
+	"workbench.editor.limit.enabled": true,
+	"workbench.editor.limit.perEditorGroup": true,
+	"workbench.editor.limit.value": 8,
+	"workbench.editor.openPositioning": "first",
+	"workbench.editor.enablePreview": false,
+	"workbench.list.smoothScrolling": true,
+	"workbench.tree.expandMode": "singleClick",
+	"workbench.tree.indent": 10,
+	"workbench.startupEditor": "none",
+	"workbench.colorTheme": "Undefined",
+	// Explorer
+	"explorer.confirmDelete": false,
+	"explorer.confirmDragAndDrop": false,
+	// Window
+	// "window.autoDetectColorScheme": true,
+	"window.commandCenter": true,
+	"window.dialogStyle": "custom",
+	"window.titleBarStyle": "custom",
+	// SCM
+	"git.autofetch": true,
+	"git.confirmSync": false,
+	"git.enableSmartCommit": true,
+	"scm.diffDecorationsGutterWidth": 2,
+	// Terminal
+	"terminal.integrated.cursorBlinking": true,
+	"terminal.integrated.fontWeight": "300",
+	"terminal.integrated.persistentSessionReviveProcess": "never",
+	"terminal.integrated.tabs.enabled": true,
+	"terminal.integrated.profiles.windows": {
+		"PowerShell 7": {
+			"path": "${env:SCOOP}\\shims\\pwsh.exe",
+			"icon": "terminal-powershell",
+			"args": [ "-NoLogo" ]
+		}
+	},
+	"terminal.integrated.defaultProfile.windows": "PowerShell 7",
+	"terminal.integrated.enableMultiLinePasteWarning": false,
+	"terminal.integrated.autoReplies": {
+		"Terminate batch job (Y/N)": "Y\r"
+	},
+	// Security
+	"security.workspace.trust.enabled": false,
+	// Debug
+	"debug.onTaskErrors": "debugAnyway",
+	// Diff Editor
+	"diffEditor.ignoreTrimWhitespace": false,
+	"diffEditor.codeLens": true,
+	// Misc
+	"search.exclude": {
+		"**/.git": true,
+		"**/.github": true,
+		"**/.nuxt": true,
+		"**/.output": true,
+		"**/.pnpm": true,
+		"**/.vscode": true,
+		"**/.yarn": true,
+		"**/bower_components": true,
+		"**/dist/**": true,
+		"**/logs": true,
+		"**/node_modules": true,
+		"**/out/**": true,
+		"**/package-lock.json": true,
+		"**/pnpm-lock.yaml": true,
+		"**/yarn.lock": true,
+		"**/tmp": true
+	},
+	"files.autoSave": "onFocusChange",
+	"files.simpleDialog.enable": true,
+	"files.associations": {
+		"*.json5": "jsonc"
+	},
+	"files.eol": "\n",
+	// Stylelint
+	"css.validate": false,
+	"scss.validate": false,
+	"less.validate": false,
+	// Languages
+	"typescript.updateImportsOnFileMove.enabled": "always",
+	"typescript.tsserver.useSyntaxServer": "auto",
+	// "typescript.useCodeSnippetsOnFunctionSuggest": true,
+	"javascript.updateImportsOnFileMove.enabled": "always",
+	// Extensions
+	"emmet.excludeLanguages": [ "markdown", "typescript", "javascript" ],
+	"emmet.showSuggestionsAsSnippets": true,
+	"emmet.useInlineCompletions": true,
+	"emmet.triggerExpansionOnTab": true,
+	"prettier.requireConfig": true,
+	"where-am-i.color": "#43A047",
+	// "http.proxy": "http://127.0.0.1:10809",
+	"eslint.codeAction.showDocumentation": {
+		"enable": true
+	},
+	"eslint.validate": [
+		"javascript",
+		"typescript",
+		"javascriptreact",
+		"typescriptreact",
+		"vue",
+		"html",
+		"markdown",
+		"json",
+		"jsonc",
+		"json5",
+		"toml",
+		"yaml",
+		"svelte",
+		"github-actions-workflow"
+	],
+	"stylelint.validate": [
+		"css",
+		"html",
+		"javascriptreact",
+		"less",
+		"postcss",
+		"sass",
+		"scss",
+		"source.css.styled",
+		"source.markdown.math",
+		"styled-css",
+		"sugarss",
+		"svelte",
+		"typescriptreact",
+		"vue",
+		"vue-html",
+		"vue-postcss",
+		"xml",
+		"xsl"
+	],
+	"github.copilot.enable": {
+		"*": true,
+		"yaml": true,
+		"plaintext": true,
+		"markdown": true,
+		"scminput": false,
+		"typescript": true,
+		"javascript": true
+	},
+	"githubIssues.workingIssueFormatScm": "#${issueNumberLabel}",
+	"githubPullRequests.fileListLayout": "tree",
+	"gitlens.codeLens.authors.enabled": false,
+	"gitlens.codeLens.enabled": false,
+	"gitlens.codeLens.recentChange.enabled": false,
+	"gitlens.menus": {
+		"editor": {
+			"blame": false,
+			"clipboard": true,
+			"compare": true,
+			"history": false,
+			"remote": false
+		},
+		"editorGroup": {
+			"blame": true,
+			"compare": false
+		},
+		"editorTab": {
+			"clipboard": true,
+			"compare": true,
+			"history": true,
+			"remote": true
+		},
+		"explorer": {
+			"clipboard": true,
+			"compare": true,
+			"history": true,
+			"remote": true
+		},
+		"scm": {
+			"authors": true
+		},
+		"scmGroup": {
+			"compare": true,
+			"openClose": true,
+			"stash": true
+		},
+		"scmGroupInline": {
+			"stash": true
+		},
+		"scmItem": {
+			"clipboard": true,
+			"compare": true,
+			"history": true,
+			"remote": false,
+			"stash": true
+		}
+	},
+	"i18n-ally.displayLanguage": "zh-CN",
+	"i18n-ally.ignoredLocales": [ ],
+	"iconify.annotations": true,
+	"iconify.inplace": true,
+	"python.analysis.autoImportCompletions": true,
+	"vue.codeActions.savingTimeLimit": 5000,
+	"vue.updateImportsOnFileMove.enabled": true,
+	"vue.complete.casing.props": "kebab",
+	"vue.complete.casing.tags": "pascal",
+	"vite.autoStart": false,
+	"vite.buildCommand": "nr build",
+	"vite.devCommand": "nr dev",
+	"svelte.enable-ts-plugin": true,
+	"go.useLanguageServer": true,
+	"gopls": {
+		"formatting.gofumpt": true,
+	},
+	"remote.SSH.remotePlatform": {
+		"155.248.177.55": "linux"
+	},
+	"redhat.telemetry.enabled": false,
+	// Languages
+	"[rust]": {
+		"editor.formatOnSave": true,
+		"editor.defaultFormatter": "rust-lang.rust-analyzer",
+		"editor.indentSize": 4
+	},
+	"[python]": {
+		"editor.formatOnSave": true,
+		"editor.formatOnType": true
+	},
+	"[svelte]": {
+		"editor.defaultFormatter": "svelte.svelte-vscode"
+	},
+	"[yaml]": {
+		"editor.insertSpaces": true,
+		"editor.tabSize": 2,
+		"editor.autoIndent": "keep",
+		"diffEditor.ignoreTrimWhitespace": false,
+		"editor.quickSuggestions": {
+			"other": true,
+			"comments": false,
+			"strings": true
+		},
+		"editor.stickyTabStops": false,
+	},
+	"[go]": {
+		"editor.insertSpaces": false,
+		"togglequotes.chars": [
+			"\"",
+			"'",
+			"`"
+		],
+		"editor.formatOnSave": true,
+		"editor.codeActionsOnSave": {
+			"source.organizeImports": true
+		},
+		"editor.defaultFormatter": "golang.go"
+	}
 }
