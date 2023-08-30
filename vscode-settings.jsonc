@@ -1,6 +1,7 @@
 {
 	// Editor
 	"editor.tabSize": 2,
+	"editor.insertSpaces": false,
 	"editor.fontFamily": "'FiraCode Nerd Font Mono', 'Maple Mono SC NF', monospace",
 	"editor.fontSize": 14,
 	"editor.lineHeight": 0,
@@ -11,14 +12,14 @@
 		"source.fixAll.eslint": true,
 		"source.fixAll.stylelint": true
 	},
-	"editor.quickSuggestions": {
-		"other": "on",
-		"comments": "on",
-		"strings": "on"
-	},
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"editor.formatOnSave": true,
 	// "editor.mouseWheelZoom": true,
+	"editor.quickSuggestions": {
+		"comments": "on",
+		"other": "on",
+		"strings": "on"
+	},
 	"editor.tabCompletion": "on",
 	"editor.unicodeHighlight.ambiguousCharacters": false,
 	"editor.accessibilitySupport": "off",
@@ -36,8 +37,10 @@
 	"editor.snippetSuggestions": "bottom",
 	"editor.linkedEditing": true,
 	"editor.detectIndentation": true,
+	// Workbench
 	"workbench.iconTheme": "material-icon-theme",
 	"workbench.productIconTheme": "icons-carbon",
+	"workbench.colorTheme": "Undefined",
 	"workbench.editor.closeOnFileDelete": true,
 	"workbench.editor.highlightModifiedTabs": true,
 	"workbench.editor.limit.enabled": true,
@@ -47,17 +50,16 @@
 	"workbench.editor.enablePreview": false,
 	"workbench.list.smoothScrolling": true,
 	"workbench.tree.expandMode": "singleClick",
-	"workbench.tree.indent": 10,
+	"workbench.tree.indent": 18,
 	"workbench.startupEditor": "none",
-	"workbench.colorTheme": "Undefined",
 	// Explorer
 	"explorer.confirmDelete": false,
 	"explorer.confirmDragAndDrop": false,
 	// Window
-	// "window.autoDetectColorScheme": true,
 	"window.commandCenter": true,
 	"window.dialogStyle": "custom",
 	"window.titleBarStyle": "custom",
+	"window.newWindowDimensions": "inherit",
 	// SCM
 	"git.autofetch": true,
 	"git.confirmSync": false,
@@ -87,6 +89,7 @@
 	// Diff Editor
 	"diffEditor.ignoreTrimWhitespace": false,
 	"diffEditor.codeLens": true,
+	// "diffEditor.experimental.collapseUnchangedRegions": true,
 	// Misc
 	"search.exclude": {
 		"**/.git": true,
@@ -109,7 +112,8 @@
 	"files.autoSave": "onFocusChange",
 	"files.simpleDialog.enable": true,
 	"files.associations": {
-		"*.json5": "jsonc"
+		"*.json5": "jsonc",
+		"*.snap": "typescript"
 	},
 	"files.eol": "\n",
 	// Stylelint
@@ -119,8 +123,10 @@
 	// Languages
 	"typescript.updateImportsOnFileMove.enabled": "always",
 	"typescript.tsserver.useSyntaxServer": "auto",
-	// "typescript.useCodeSnippetsOnFunctionSuggest": true,
+	"typescript.preferences.importModuleSpecifier": "non-relative",
 	"javascript.updateImportsOnFileMove.enabled": "always",
+	"javascript.preferences.importModuleSpecifier": "non-relative",
+	"markdown.editor.pasteUrlAsFormattedLink.enabled": "smart",
 	// Extensions
 	"emmet.excludeLanguages": [ "markdown", "typescript", "javascript" ],
 	"emmet.showSuggestionsAsSnippets": true,
@@ -148,26 +154,6 @@
 		"svelte",
 		"github-actions-workflow"
 	],
-	"stylelint.validate": [
-		"css",
-		"html",
-		"javascriptreact",
-		"less",
-		"postcss",
-		"sass",
-		"scss",
-		"source.css.styled",
-		"source.markdown.math",
-		"styled-css",
-		"sugarss",
-		"svelte",
-		"typescriptreact",
-		"vue",
-		"vue-html",
-		"vue-postcss",
-		"xml",
-		"xsl"
-	],
 	"github.copilot.enable": {
 		"*": true,
 		"yaml": true,
@@ -175,10 +161,13 @@
 		"markdown": true,
 		"scminput": false,
 		"typescript": true,
-		"javascript": true
+		"typescriptreact": true,
+		"javascript": true,
+		"javascriptreact": true,
 	},
 	"githubIssues.workingIssueFormatScm": "#${issueNumberLabel}",
 	"githubPullRequests.fileListLayout": "tree",
+	"githubPullRequests.pullBranch": "never",
 	"gitlens.codeLens.authors.enabled": false,
 	"gitlens.codeLens.enabled": false,
 	"gitlens.codeLens.recentChange.enabled": false,
@@ -229,11 +218,21 @@
 	"i18n-ally.ignoredLocales": [ ],
 	"iconify.annotations": true,
 	"iconify.inplace": true,
+	"template-string-converter.addBracketsToProps": true,
+	"template-string-converter.convertOutermostQuotes": true,
 	"python.analysis.autoImportCompletions": true,
-	"vue.codeActions.savingTimeLimit": 5000,
+	// "vue.codeActions.savingTimeLimit": 5000,
 	"vue.updateImportsOnFileMove.enabled": true,
 	"vue.complete.casing.props": "kebab",
 	"vue.complete.casing.tags": "pascal",
+	"vue.server.vitePress.supportMdFile": true,
+	"vue.splitEditors.layout.left": [
+		"script",
+		"scriptSetup",
+		"styles"
+	],
+	"vue-semantic-server.trace.server": "messages",
+	"vue-syntactic-server.trace.server": "messages",
 	"vite.autoStart": false,
 	"vite.buildCommand": "nr build",
 	"vite.devCommand": "nr dev",
@@ -283,5 +282,22 @@
 			"source.organizeImports": true
 		},
 		"editor.defaultFormatter": "golang.go"
-	}
+	},
+	"[go.mod]": {
+		"editor.defaultFormatter": "golang.go"
+	},
+	"[markdown]": {
+		"editor.quickSuggestions": {
+			"comments": "on",
+			"other": "on",
+			"strings": "on"
+		},
+	},
+	"animations.Enabled": false,
+	"animations.CursorAnimation": true,
+	"animations.Command-Palette": "None",
+	"animations.Active": "None",
+	"animations.Scrolling": "None",
+	"animations.Tabs": "None",
+	"animations.Focus-Dimming-Mode": "None",
 }
