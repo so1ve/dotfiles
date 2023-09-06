@@ -358,8 +358,11 @@ function tz { taze major -wfri @args }
 function giget { nx giget@latest @args }
 function vc { nx vercel@latest @args }
 function vcp { vc --prod @args }
-function parent {
-  cd ../..
+function .. {
+	cd ..
+}
+function .... {
+	cd ../..
 }
 
 # Deno
@@ -443,9 +446,10 @@ function git {
 	}
 }
 function main {
-	try {
+	$mainExists = git branch --list main
+	if ($mainExists) {
 		git checkout main
-	} catch {
+	} else {
 		git checkout master
 	}
 }
