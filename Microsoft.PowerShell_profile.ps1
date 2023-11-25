@@ -217,19 +217,18 @@ Import-Module $env:SCOOP\modules\dockercompletion
 Import-Module $env:SCOOP\apps\bottom\current\completion\_btm.ps1
 starship completions powershell | Out-String | Invoke-Expression
 rustup completions powershell | Out-String | Invoke-Expression
-fnm completions --shell powershell | Out-String | Invoke-Expression
+fnm completions --shell power-shell | Out-String | Invoke-Expression
 dvm completions powershell | Out-String | Invoke-Expression
 deno completions powershell --unstable | Out-String | Invoke-Expression
 # (& conda 'shell.powershell' 'hook') | Out-String | Invoke-Expression
-(& volta completions powershell) | Out-String | Invoke-Expression
-Invoke-Expression (& { $hook = if ($PSVersionTable.PSVersion.Major -ge 6) { 'pwd' } else { 'prompt' } (zoxide init powershell --hook $hook | Out-String) })
+# (& volta completions powershell) | Out-String | Invoke-Expression
 
 #############################
 # Fuck!
 #############################
 
 $env:PYTHONIOENCODING = "utf-8"
-thefuck --alias | Out-String | Invoke-Expression
+# thefuck --alias | Out-String | Invoke-Expression
 
 #############################
 # Starship
@@ -457,3 +456,5 @@ function main {
 # INIT Proxy
 
 proxy
+
+Invoke-Expression (& { $hook = if ($PSVersionTable.PSVersion.Major -ge 6) { 'pwd' } else { 'prompt' } (zoxide init powershell --hook $hook | Out-String) })
